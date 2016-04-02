@@ -460,9 +460,24 @@ footer .footer-below {
     color: #ffffff;
     background-color: #1A242F;
     border-color: #1A242F;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
 }
 .btn-success:hover {
     color: #ffffff;
     background-color: #3E3E3E;
     border-color: #3E3E3E;
+}
+#contactForm{
+    font-size: 11px;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: #55D3FB;
+    background-color: transparent;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #55D3FB;
+    background-color: transparent;
 }
