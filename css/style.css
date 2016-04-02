@@ -456,3 +456,13 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+.btn-success {
+    color: #ffffff;
+    background-color: #1A242F;
+    border-color: #1A242F;
+}
+.btn-success:hover {
+    color: #ffffff;
+    background-color: #3E3E3E;
+    border-color: #3E3E3E;
+}
