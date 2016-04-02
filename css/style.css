@@ -481,3 +481,11 @@ footer .footer-below {
     color: #55D3FB;
     background-color: transparent;
 }
+.navbar-logo2 {
+    width: 45px;
+    height: 40px;
+    background-image: url('../img/logo2.png');
+    position: absolute;
+    margin-left: -49px;
+    margin-top: -3px;
+}
