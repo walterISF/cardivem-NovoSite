@@ -489,3 +489,7 @@ footer .footer-below {
     margin-left: -49px;
     margin-top: -3px;
 }
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+    margin-right: -15px;
+    margin-left: 19px;
+}
