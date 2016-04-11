@@ -35,3 +35,34 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+$('#adm').click(function() {
+  $('#mdAutenticacao').modal('show');
+});
+
+$('.btnAutenticacao').click(function(){
+  var senha = $('.senhaAdm').val();
+
+  if(senha != ""){
+    //alert('entrou');
+  $.ajax({
+      url: "mail/autenticacao.php",
+      dataType: "json",
+      data: {
+          senha: senha
+      },
+      success: function(data){
+        //alert(data);
+        if(data == 'correta'){
+          $('#mdAutenticacao').modal('hide');
+          $('#mdUpload').modal('show');
+        }else{
+          $('.alerta').css('display','block');
+          setTimeout(function(){$('.alerta').css('display','none');},2000);
+        }
+      },
+      async: true,
+    }).responseText;
+    return false;
+  }
+});
