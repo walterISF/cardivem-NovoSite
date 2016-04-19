@@ -219,7 +219,7 @@ section.success a.active {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: rgba(24,188,156,.9);
+    background: rgb(44, 62, 80);
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
@@ -227,11 +227,16 @@ section.success a.active {
 
 #portfolio .portfolio-item .portfolio-link .caption:hover {
     opacity: 1;
+    -webkit-transition-property: width; /* Safari */
+    -webkit-transition-duration: 2s; /* Safari */
+    transition-property: height;
+    transition-duration: 2s;
+    height: 100%;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content {
     position: absolute;
-    top: 50%;
+    top: 9%;
     width: 100%;
     height: 20px;
     margin-top: -12px;
@@ -813,4 +818,13 @@ footer .footer-below {
 
 #mdUpload{
     top: 15%;
+}
+#adm{
+  font-size: 20px;
+}
+.list-inline {
+    margin-left: 0px;
+}
+.fa-fw {
+    padding-top: 13px;
 }

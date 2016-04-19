@@ -9,25 +9,26 @@ $(function() {
             // Prevent spam click and default submit behaviour
             $("#btnSubmit").attr("disabled", true);
             event.preventDefault();
-            
+
             // get values from FORM
-            var name = $("input#name").val();
+            var nome = $("input#nome").val();
+            var sobrenome = $("input#sobrenome").val();
             var email = $("input#email").val();
-            var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
-            var firstName = name; // For Success/Failure Message
+            var telefone = $("input#telefone").val();
+            var mensagem = $("textarea#mensagem").val();
+            var firstName = nome; // For Success/Failure mensagem
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
-                firstName = name.split(' ').slice(0, -1).join(' ');
+                firstName = nome.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
-                type: "POST",
+                url: "././mail/email.php",
                 data: {
-                    name: name,
-                    phone: phone,
+                    nome: nome,
+                    sobrenome: sobrenome,
+                    telefone: telefone,
                     email: email,
-                    message: message
+                    mensagem: mensagem
                 },
                 cache: false,
                 success: function() {
@@ -37,7 +38,7 @@ $(function() {
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>Your message has been sent. </strong>");
+                        .append("<strong>Sua mensagem está sendo enviada.</strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
@@ -49,7 +50,7 @@ $(function() {
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", Parece que o servidor de email não está respondendo. Por favor tente mais tarde!");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
