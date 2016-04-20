@@ -828,3 +828,15 @@ footer .footer-below {
 .fa-fw {
     padding-top: 13px;
 }
+.titulosPortifolio{
+  position: absolute;
+  width: 100%;
+  background-color: #2C3E50;
+  height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  color: #fff;
+  padding-top: 8px;
+}
