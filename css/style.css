@@ -840,3 +840,11 @@ footer .footer-below {
   color: #fff;
   padding-top: 8px;
 }
+#divSlider{
+  padding-left: 0px !important;
+}
+#iconeScroll{
+  margin: auto;
+  position: absolute;
+  margin-left: -20%;
+}
