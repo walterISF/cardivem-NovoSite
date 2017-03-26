@@ -12,7 +12,7 @@
   $imagens = array();
   $imagens_thumb = array();
 
-  $sql = 'SELECT img FROM img';
+  $sql = 'SELECT img FROM img where id=1';
   $resultado = mysql_query($sql);
 
   $i = 0;
