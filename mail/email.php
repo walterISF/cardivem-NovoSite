@@ -23,8 +23,10 @@ if(empty($_GET['nome'])  		||
 
    //Envio de email para grupo netglobe
 
-
-   $email_destino = 'Web e Ponto <wisf_94@hotmail.com>';
+   date_default_timezone_set('America/Sao_Paulo');
+ 	 $data_envio = date('d/m/Y');
+ 	 $hora_envio = date('H:i:s');
+   $email_destino = 'claudiano@cardivem.com.br';
 
    $message  = utf8_decode( '
    <!doctype html>
@@ -35,7 +37,7 @@ if(empty($_GET['nome'])  		||
 
    <body>
                  <h2 style="padding-left:220px;;font-family: arial">Dados do Cliente</h2>
-
+                  Mensagem Automática enviada no dia '.$data_envio.' às '.$hora_envio.'!<br><br>
                <table id="email" width="600px" cellspacing="0" style="font-family:arial">
                  <tr>
                      <td style="background-color: #EBEBEB;padding-top: 10px;padding-bottom: 10px;">
@@ -69,27 +71,27 @@ if(empty($_GET['nome'])  		||
    </html>
      ' );
 
-       //remetente
-     $emailsender = $email;
+     //remetente
+   $emailsender = 'claudiano@cardivem.com.br';
 
-   /* Verifica qual é o sistema operacional do servidor para ajustar o cabeçalho de forma correta. Não alterar */
-     if(PHP_OS == "Linux") $quebra_linha = "\n"; //Se for Linux
-     elseif(PHP_OS == "WINNT") $quebra_linha = "\r\n"; // Se for Windows
-     else die("Este script não está preparado para funcionar com o sistema operacional de seu servidor");
+ /* Verifica qual é o sistema operacional do servidor para ajustar o cabeçalho de forma correta. Não alterar */
+   if(PHP_OS == "Linux") $quebra_linha = "\n"; //Se for Linux
+   elseif(PHP_OS == "WINNT") $quebra_linha = "\r\n"; // Se for Windows
+   else die("Este script nao esta preparado para funcionar com o sistema operacional de seu servidor");
 
-     /* Montando o cabeçalho da mensagem */
-     $headers = "MIME-Version: 1.1".$quebra_linha.
-     "Content-type: text/html; charset=iso-8859-1".$quebra_linha .
-     "From: ".$emailsender.$quebra_linha.
-     "Reply-To: ".$emailsender.$quebra_linha;
-     // Note que o e-mail do remetente será usado no campo Reply-To (Responder Para)
-     echo'aqui fora';
-     /* Enviando a mensagem */
+   /* Montando o cabeçalho da mensagem */
+   $headers = "MIME-Version: 1.1".$quebra_linha.
+   "Content-type: text/html; charset=iso-8859-1".$quebra_linha .
+   "From: ".$emailsender.$quebra_linha.
+   "Reply-To: ".$emailsender.$quebra_linha;
+   // Note que o e-mail do remetente será usado no campo Reply-To (Responder Para)
 
-     mail($email_destino, $assunto, $message, $headers);
-     $str_msg = 'Sua mensagem foi enviada com sucesso!';
-     echo $str_msg;
-
-     return true;
-
+   /* Enviando a mensagem */
+   //Verificando qual é o MTA que está instalado no servidor e efetuamos o ajuste colocando o paramentro -r caso seja Postfix
+   if(!mail($email_destino, '[Contato] - '.$nome, $message, $headers ,"-r".$emailsender)){ // Se for Postfix
+     $headers .= "Return-Path: " . $emailsender . $quebra_linha; // Se "não for Postfix"
+   mail($email_destino, $assunto, $message, $headers);
+   //$str_msg = 'Sua mensagem foi enviada com sucesso!';
+   //echo $str_msg;
+ }
    ?>
